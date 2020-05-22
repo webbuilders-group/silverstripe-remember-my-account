@@ -1,0 +1,19 @@
+Remember My Acccount
+=================
+Adjusts the "Keep me signed in" functionality to require re-authentication on return while remembering the account the user last signed in with.
+
+## Maintainer Contact
+* Ed Chipman ([UndefinedOffset](https://github.com/UndefinedOffset))
+
+## Requirements
+* silverstripe/framework ~4.4
+* silverstripe/login-forms ~4.0
+
+## Installation
+__Composer (recommended):__
+```
+composer require webbuilders-group/silverstripe-versioned-helpers
+```
+
+## Documentation
+The documentation and usage instructions for the various helpers can be found [here](docs/en).
