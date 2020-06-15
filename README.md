@@ -12,8 +12,5 @@ Adjusts the "Keep me signed in" functionality to require re-authentication on re
 ## Installation
 __Composer (recommended):__
 ```
-composer require webbuilders-group/silverstripe-versioned-helpers
+composer require webbuilders-group/silverstripe-remember-my-account
 ```
-
-## Documentation
-The documentation and usage instructions for the various helpers can be found [here](docs/en).
