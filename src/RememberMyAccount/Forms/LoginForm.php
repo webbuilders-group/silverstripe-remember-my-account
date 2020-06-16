@@ -71,7 +71,7 @@ class LoginForm extends MemberLoginForm
                     
                     Requirements::css('webbuilders-group/silverstripe-remember-my-account: css/loginform.css');
                     
-                    $this->extend('updateRememberedAccountForm', $fields, $actions);
+                    $this->extend('updateRememberedAccountForm', $member, $fields, $actions);
                 }
             }
         }
