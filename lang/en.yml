@@ -2,3 +2,5 @@ en:
     WebbuildersGroup\RememberMyAccount\Forms\LoginForm:
         WELCOME_BACK: "Welcome Back {name}"
         NOT_USER: "Not {name}?"
+    SilverStripe\Security\Member:
+        KEEPMESIGNEDIN: "Remember my account"
