@@ -87,6 +87,6 @@ class LoginForm extends MemberLoginForm
             }
         }
         
-        parent::__construct($loginHandler, $authenticator, $name, $fields, $actions, false);
+        parent::__construct($loginHandler, $authenticator, $name, $fields, $actions, $checkCurrentUser);
     }
 }
