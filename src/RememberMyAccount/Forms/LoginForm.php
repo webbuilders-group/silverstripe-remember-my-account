@@ -3,10 +3,8 @@ namespace WebbuildersGroup\RememberMyAccount\Forms;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\HiddenField;
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\PasswordField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLVarchar;
@@ -70,12 +68,7 @@ class LoginForm extends MemberLoginForm
                         $fields->push(HiddenField::create('BackURL', 'BackURL', $backURL));
                     }
                     
-                    $actions = new FieldList(
-                        FormAction::create('dologin', _t(Member::class . '.BUTTONLOGIN', 'Log in'))
-                                    ->setUseButtonTag(true)
-                                    ->addExtraClass('button btn-primary font-icon-login'),
-                        new LiteralField('forgotPassword', '<p id="ForgotPassword"><a href="Security/lostpassword">' . _t(Member::class . '.BUTTONLOSTPASSWORD', '_Forgot Password?') . '</a></p>')
-                    );
+                    $actions = $this->getFormActions();
                     
                     
                     Requirements::css('webbuilders-group/silverstripe-remember-my-account: css/loginform.css');
