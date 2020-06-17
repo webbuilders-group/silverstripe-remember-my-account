@@ -45,6 +45,6 @@
 	<!-- include php files only -->
 	<arg name="extensions" value="php,lib,inc,php5"/>
 
-	<file>./app</file>
+	<file>./</file>
 </ruleset>
 

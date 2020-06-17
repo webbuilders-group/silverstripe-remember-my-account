@@ -84,10 +84,10 @@ jobs:
       - name: Perform PHPUnit Tests
         env:
           SS_DATABASE_PORT: ${{ job.services.mysql.ports['3306'] }}
-        run: vendor/bin/phpunit --colors=always --printer WebbuildersGroup\\GitHubActionsCIRecipe\\PHPUnit\\GitHubActionsAnnotatorPrinter app/tests/PHPUnit
+        run: vendor/bin/phpunit --colors=always --printer WebbuildersGroup\\GitHubActionsCIRecipe\\PHPUnit\\GitHubActionsAnnotatorPrinter tests/PHPUnit
 
       - name: Validate Code Style
-        run: vendor/bin/phpcs --colors app --report=full --report-checkstyle=artifacts/phpcs.xml
+        run: vendor/bin/phpcs --colors . --ignore=*/vendor/* --report=full --report-checkstyle=artifacts/phpcs.xml
 
       - name: Annotate Code Style Issues
         if: failure()
