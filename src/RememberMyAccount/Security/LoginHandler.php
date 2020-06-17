@@ -18,7 +18,7 @@ class LoginHandler extends SS_LoginHandler
     {
         $title = '';
         if (!Security::getCurrentUser() && $this->getRequest()->getSession()->get(CookieAuthenticationHandler::config()->session_key_name) == null) {
-            $title = _t(Seuciryt::class . '.LOGIN', 'Log in');
+            $title = _t(Security::class . '.LOGIN', 'Log in');
         }
         
         return [

@@ -1,6 +1,7 @@
 <?php
 namespace WebbuildersGroup\RememberMyAccount\Forms;
 
+use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HeaderField;
@@ -43,7 +44,19 @@ class LoginForm extends MemberLoginForm
                 if ($member) {
                     $fields = new FieldList(
                         //Regardless of what the unique identifer field is (usually 'Email'), it will be held in the 'Email' value, below:
-                        $head = HeaderField::create('Welcome', DBField::create_field(DBHTMLVarchar::class, _t(__CLASS__ . '.WELCOME_BACK', '_Welcome Back {name}', ['name' => $member->Name]) . '<a href="Security/logout?SecurityID=' . SecurityToken::inst()->getValue() . (isset($backURL) ? '&BackURL=' . rawurlencode($backURL) : '') . '" class="notUser">' . _t(__CLASS__ . '.NOT_USER', '_Not {name}?', ['name' => $member->FirstName]) . '</a>')),
+                        HeaderField::create(
+                            'Welcome',
+                            DBField::create_field(
+                                DBHTMLVarchar::class,
+                                _t(__CLASS__ . '.WELCOME_BACK', '_Welcome Back {name}', ['name' => $member->Name]) .
+                                '<a href="' .
+                                Controller::join_links(
+                                    Security::logout_url(),
+                                    '?SecurityID=' . SecurityToken::inst()->getValue() . (isset($backURL) ? '&BackURL=' . rawurlencode($backURL) : '')
+                                ) .
+                                '" class="notUser">' . _t(__CLASS__ . '.NOT_USER', '_Not {name}?', ['name' => $member->FirstName]) . '</a>'
+                            )
+                        )->addExtraClass('remembered-account')->setAllowHTML(true),
                         new PasswordField('Password', _t(Member::class . '.PASSWORD', 'Password')),
                         new HiddenField("AuthenticationMethod", null, $authenticator, $this),
                         new HiddenField('Email', 'Email', $member->Email, null, $this)
@@ -56,10 +69,6 @@ class LoginForm extends MemberLoginForm
                     if (isset($backURL)) {
                         $fields->push(HiddenField::create('BackURL', 'BackURL', $backURL));
                     }
-                    
-                    $head
-                        ->addExtraClass('remembered-account')
-                        ->setAllowHTML(true);
                     
                     $actions = new FieldList(
                         FormAction::create('dologin', _t(Member::class . '.BUTTONLOGIN', 'Log in'))
