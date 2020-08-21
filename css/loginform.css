@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.login-form .remembered-login-form .clear {
+    display: none;
+}
+
 .login-form .login-form__message, .login-form .message {
     max-width: 100% !important;
 }
