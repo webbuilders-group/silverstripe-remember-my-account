@@ -13,6 +13,10 @@
     margin: 0.462rem 0 0 0.6154rem;
 }
 
+.login-form .remembered-account .right-remember-contents {
+    flex-grow: 2;
+}
+
 .login-form .remembered-account + .password input.password {
     width: 100%;
 }
