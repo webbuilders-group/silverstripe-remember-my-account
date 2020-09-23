@@ -15,3 +15,8 @@ SilverStripe\Core\Injector\Injector:
         properties:
             Handlers:
                 alc: '%$WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler'
+
+
+SilverStripe\Security\MemberAuthenticator\LogoutHandler:
+    extensions:
+        - 'WebbuildersGroup\RememberMyAccount\Extensions\LogoutHandlerExtension'

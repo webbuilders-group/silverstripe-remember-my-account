@@ -6,3 +6,6 @@
 /.gitignore       export-ignore
 /.editorconfig    export-ignore
 /.github          export-ignore
+/.settings        export-ignore
+/.buildpath       export-ignore
+/.project         export-ignore
