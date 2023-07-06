@@ -26,6 +26,7 @@
     "autoload": {
         "psr-4": {
             "WebbuildersGroup\\RememberMyAccount\\": "src/RememberMyAccount"
+            "WebbuildersGroup\\RememberMyAccount\\Tests\\": "tests/PHPUnit"
         }
     }
 }
