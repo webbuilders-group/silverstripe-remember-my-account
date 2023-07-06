@@ -3,20 +3,20 @@ Name: remember_my_account
 After: "silverstripe/framework#coreauthentication"
 ---
 SilverStripe\Core\Injector\Injector:
-    SilverStripe\Security\MemberAuthenticator\MemberLoginForm:
-        class: 'WebbuildersGroup\RememberMyAccount\Forms\LoginForm'
-    SilverStripe\Security\MemberAuthenticator\LoginHandler:
-        class: 'WebbuildersGroup\RememberMyAccount\Security\LoginHandler'
-    WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler:
-        properties:
-            TokenCookieName: alc_enc
-            DeviceCookieName: alc_device
-    SilverStripe\Security\AuthenticationHandler:
-        properties:
-            Handlers:
-                alc: '%$WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler'
+  SilverStripe\Security\MemberAuthenticator\MemberLoginForm:
+    class: 'WebbuildersGroup\RememberMyAccount\Forms\LoginForm'
+  SilverStripe\Security\MemberAuthenticator\LoginHandler:
+    class: 'WebbuildersGroup\RememberMyAccount\Security\LoginHandler'
+  WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler:
+    properties:
+      TokenCookieName: alc_enc
+      DeviceCookieName: alc_device
+  SilverStripe\Security\AuthenticationHandler:
+    properties:
+      Handlers:
+        alc: '%$WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler'
 
 
 SilverStripe\Security\MemberAuthenticator\LogoutHandler:
-    extensions:
-        - 'WebbuildersGroup\RememberMyAccount\Extensions\LogoutHandlerExtension'
+  extensions:
+    - 'WebbuildersGroup\RememberMyAccount\Extensions\LogoutHandlerExtension'

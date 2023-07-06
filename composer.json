@@ -12,11 +12,8 @@
         }
     ],
     "require": {
-        "silverstripe/recipe-core": "~4.4",
-        "silverstripe/login-forms": "~4.0"
-    },
-    "require-dev": {
-        "webbuilders-group/silverstripe-recipe-github-ci": "~1.0"
+        "silverstripe/recipe-core": "~4.4|~5.0",
+        "silverstripe/login-forms": "~4.0|~5.0"
     },
     "support": {
         "issues": "https://github.com/webbuilders-group/silverstripe-remember-my-account/issues"
