@@ -9,9 +9,9 @@ use SilverStripe\Forms\PasswordField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLVarchar;
 use SilverStripe\Security\Member;
+use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
 use SilverStripe\Security\Security;
 use SilverStripe\Security\SecurityToken;
-use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
 use SilverStripe\View\Requirements;
 use WebbuildersGroup\RememberMyAccount\Security\CookieAuthenticationHandler;
 
@@ -34,14 +34,14 @@ class LoginForm extends MemberLoginForm
         } else {
             $backURL = $request->getSession()->get('BackURL');
         }
-        
+
         if ($checkCurrentUser) {
             $member = Security::getCurrentUser();
             if (!$member && $loginHandler->getRequest()->getSession()->get(CookieAuthenticationHandler::config()->session_key_name) > 0) {
                 $member = Member::get()->byID(intval($loginHandler->getRequest()->getSession()->get(CookieAuthenticationHandler::config()->session_key_name)));
                 if ($member) {
                     $fields = new FieldList(
-                        //Regardless of what the unique identifer field is (usually 'Email'), it will be held in the 'Email' value, below:
+                        // Regardless of what the unique identifer field is (usually 'Email'), it will be held in the 'Email' value, below:
                         HeaderField::create(
                             'Welcome',
                             DBField::create_field(
@@ -59,27 +59,27 @@ class LoginForm extends MemberLoginForm
                         new HiddenField("AuthenticationMethod", null, $authenticator, $this),
                         new HiddenField('Email', 'Email', $member->Email, null, $this)
                     );
-                    
+
                     if (Security::config()->autologin_enabled) {
                         $fields->push(new HiddenField('Remember', 'Remember', 1));
                     }
-                    
+
                     if (isset($backURL)) {
                         $fields->push(HiddenField::create('BackURL', 'BackURL', $backURL));
                     }
-                    
+
                     $actions = $this->getFormActions();
-                    
-                    
+
+
                     Requirements::css('webbuilders-group/silverstripe-remember-my-account: css/loginform.css');
-                    
+
                     $this->extend('updateRememberedAccountForm', $member, $fields, $actions);
-                    
+
                     $this->addExtraClass('remembered-login-form');
                 }
             }
         }
-        
+
         parent::__construct($loginHandler, $authenticator, $name, $fields, $actions, $checkCurrentUser);
     }
 }
