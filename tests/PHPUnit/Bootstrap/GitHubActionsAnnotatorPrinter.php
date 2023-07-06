@@ -1,5 +1,5 @@
 <?php
-namespace WebbuildersGroup\RememberMyAccount\PHPUnit\Tests\Bootstrap;
+namespace WebbuildersGroup\RememberMyAccount\Tests\PHPUnit\Bootstrap;
 
 use PHPUnit\Framework\TestFailure;
 use PHPUnit\TextUI\DefaultResultPrinter;
