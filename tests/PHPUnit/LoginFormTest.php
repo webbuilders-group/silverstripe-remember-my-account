@@ -110,7 +110,7 @@ class LoginFormTest extends FunctionalTest
 
 
         // Try logging out
-        $this->get(Security::logout_url());
+        $this->logOut();
 
 
         // Check the login page
