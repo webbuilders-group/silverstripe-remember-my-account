@@ -2,4 +2,8 @@
     <testsuite name="Default">
         <directory>tests/PHPUnit/</directory>
     </testsuite>
+
+    <php>
+        <get name="flush" value="1"/>
+    </php>
 </phpunit>
