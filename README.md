@@ -8,8 +8,8 @@ Adjusts the "Keep me signed in" functionality to require re-authentication on re
 * Ed Chipman ([UndefinedOffset](https://github.com/UndefinedOffset))
 
 ## Requirements
-* silverstripe/framework ~4.4 | ~5.0
-* silverstripe/login-forms ~4.0 | ~5.0
+* silverstripe/framework ~4.4|~5.0|~6.0
+* silverstripe/login-forms ~4.0|~5.0|~6.0
 
 ## Installation
 ```

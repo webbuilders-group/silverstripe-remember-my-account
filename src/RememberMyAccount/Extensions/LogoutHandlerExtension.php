@@ -12,7 +12,7 @@ class LogoutHandlerExtension extends Extension
 {
     public function afterLogout()
     {
-        $request = (Controller::has_curr() ? Controller::curr()->getRequest() : null);
+        $request = (Controller::curr() ? Controller::curr()->getRequest() : null);
         if ($request) {
             $member = Member::get()->byID(intval($request->getSession()->get(CookieAuthenticationHandler::config()->session_key_name)));
             if ($member instanceof Member) {
