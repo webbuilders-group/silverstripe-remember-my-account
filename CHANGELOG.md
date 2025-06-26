@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.0](https://github.com/webbuilders-group/silverstripe-remember-my-account/tree/1.1.0) (2025-06-26)
+[Full Changelog](https://github.com/webbuilders-group/silverstripe-remember-my-account/compare/1.0.4...1.1.0)
+
 ## [1.0.4](https://github.com/webbuilders-group/silverstripe-remember-my-account/tree/1.0.4) (2023-07-06)
 [Full Changelog](https://github.com/webbuilders-group/silverstripe-remember-my-account/compare/1.0.3...1.0.4)
 
